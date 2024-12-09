@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+@font-face {
+  font-family: 'Squealer';
+  src: url('../fonts/squealer-embossed.ttf');
+}
+
+@font-face {
+  font-family: 'Matrix II Bold';
+  src: url('../fonts/matrix-ii-bold.otf');
+}
