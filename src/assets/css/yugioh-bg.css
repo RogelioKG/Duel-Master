@@ -1,0 +1,65 @@
+/* 
+<main>
+  <video></video>
+</main>
+*/
+
+/******************** < w320px Starts ********************/
+main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+video {
+  position: absolute;
+  object-fit: cover;
+  min-height: 125%;
+  min-width: 125%;
+  left: -500px;
+  top: -50px;
+  z-index: -10000;
+}
+
+/******************** < w320px Ends ********************/
+
+/******************** Mobile S - w320px Starts ********************/
+@media all and (min-width: 320px) {
+  video {
+    left: -450px;
+  }
+}
+
+/******************** Mobile S - w320px Ends ********************/
+
+/******************** Mobile M - w375px) Starts ********************/
+@media all and (min-width: 375px) {
+  video {
+    left: -350px;
+  }
+}
+
+/******************** Mobile M - w375px Ends ********************/
+
+/******************** Mobile L - w425px Starts ********************/
+@media all and (min-width: 425px) {
+}
+
+/******************** Mobile L - w425px Ends ********************/
+
+/******************** Tablet - w768px Starts ********************/
+@media all and (min-width: 768px) {
+  video {
+    left: -70px;
+  }
+}
+
+/******************** Tablet - w768px Ends ********************/
+
+/******************** Laptop - w1024px Starts ********************/
+@media all and (min-width: 1024px) {
+}
+
+/******************** Laptop - w1024px Ends ********************/

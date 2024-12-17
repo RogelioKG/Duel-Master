@@ -1,0 +1,41 @@
+@import '/node_modules/bootstrap/scss/bootstrap-grid';
+
+@font-face {
+  font-family: 'Squealer';
+  src: url('../fonts/squealer-embossed.ttf');
+}
+
+@font-face {
+  font-family: 'Matrix II Bold';
+  src: url('../fonts/matrix-ii-bold.otf');
+}
+
+@font-face {
+  font-family: 'Noto Sans TC';
+  src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:ital,wght@0,100..900;1,100..900&display=swap');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: 'Matrix II Bold';
+}
+
+:root {
+  --primary-color: rgb(245, 222, 179); // wheat
+  --primary-active-color: rgb(249, 189, 77);
+  --secondary-color: rgb(30, 30, 30);
+}
+
+::selection {
+  background-color: black;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}

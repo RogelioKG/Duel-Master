@@ -1,0 +1,13 @@
+@mixin rounded($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+.rounded-30 {
+  @include rounded(30px);
+}
+
+.rounded-60 {
+  @include rounded(60px);
+}
