@@ -1,6 +1,6 @@
 import { onMounted, unref, watch } from 'vue'
 import { useMediaQuery, type MaybeElementRef } from '@vueuse/core'
-import type { CanvasCardType } from '@/types/all'
+import type { CanvasCardType } from '@/types'
 
 /**
  * ## Brief

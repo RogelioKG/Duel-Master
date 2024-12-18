@@ -67,6 +67,6 @@ const clickHandler = () => {
 }
 
 #input-area:focus {
-  outline: none !important;
+  outline: none;
 }
 </style>

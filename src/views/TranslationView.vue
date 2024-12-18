@@ -6,7 +6,10 @@
         <div class="btn-group col-md-6" v-if="isLargeScreen">
           <div class="btn-with-gap-block">
             <FillButton tag="button" :active-r="!!imageFile" @click="modalDropRef?.showModal()">
-              Upload Image
+              Upload image
+              <!-- <lord-icon src="https://cdn.lordicon.com/rszslpey.json" trigger="morph" state="morph-sea"
+                colors="primary:#f5deb3,secondary:#f5deb3" style="width:50px;height:50px">
+              </lord-icon> -->
             </FillButton>
             <InputButton :active-r="!!passwordInput" @get-input="getInputHandler">
               Password
@@ -83,7 +86,7 @@
 import { onMounted, ref, toValue, useTemplateRef, watch } from 'vue'
 import { useMediaQuery, type MaybeElementRef } from '@vueuse/core'
 import { CARD_LEAVING_MS, FLIP_DURATION_MS } from '@/config'
-import type { CanvasCardType } from '@/types/all'
+import type { CanvasCardType } from '@/types'
 import yugiohExample from '@/assets/example/yugioh'
 import yugiohBackExample from '@/assets/example/yugiohBack'
 import CanvasCard from '@/components/canvas-card/CanvasCard.vue'

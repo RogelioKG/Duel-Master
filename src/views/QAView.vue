@@ -3,14 +3,14 @@
     <div class="jagged-bg"></div>
     <div class="qa">
       <div class="chatroom">
-        <Message v-for="(message, index) in messages" :key="index" :userImage="message.avatar" :userName="message.name"
+        <MessageBox v-for="(message, index) in messages" :key="index" :userImage="message.avatar" :userName="message.name"
           :userType="message.isLocal ? 'local' : 'remote'">
           {{ message.text }}
-        </Message>
-        <Message userType="local" userName="Junko Yagami" userImage="https://picsum.photos/200/200/?random=20">
+        </MessageBox>
+        <MessageBox userType="local" userName="Junko Yagami" userImage="https://picsum.photos/200/200/?random=20">
           <CanvasCard ref="cardRef" :front-card-data="frontCardData" :back-card-data="backCardData" :is-tilt="true">
           </CanvasCard>
-        </Message>
+        </MessageBox>
       </div>
     </div>
   </main>
@@ -18,7 +18,8 @@
 
 <script setup lang="ts">
 import { ref, useTemplateRef } from 'vue'
-import Message from '@/components/chat/Message.vue'
+import { type Message } from '@/types'
+import MessageBox from '@/components/chat/MessageBox.vue'
 import CanvasCard from '@/components/canvas-card/CanvasCard.vue'
 import { createFrontCardData, createBackCardData } from '@/utils/canvas-card/cardCreation'
 import yugiohExample from '@/assets/example/yugioh'
@@ -27,13 +28,6 @@ import yugiohBackExample from '@/assets/example/yugiohBack'
 const cardRef = useTemplateRef('cardRef')
 const frontCardData = createFrontCardData(yugiohExample, { width: 200 })
 const backCardData = createBackCardData(yugiohBackExample, { width: 200 })
-
-interface Message {
-  avatar: string;
-  name: string;
-  text: string;
-  isLocal: boolean;
-}
 
 // constants //
 const msgs = [
@@ -97,7 +91,6 @@ const messages = ref<Message[]>(msgs)
   width: 90%;
   padding: 20px;
   max-width: 1000px;
-  margin-top: 50px;
   box-shadow: 0 0 10px var(--primary-color);
   border: 1px solid var(--primary-color);
   border-radius: 5px;
