@@ -1,0 +1,20 @@
+:root {
+  /* Colors */
+  --primary-color: rgb(245, 222, 179);
+  --primary-active-color: rgb(249, 189, 77);
+  --secondary-color: rgb(30, 30, 30);
+  --background-color: #f0f2f5;
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --text-secondary: #666;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  
+  /* Border radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}

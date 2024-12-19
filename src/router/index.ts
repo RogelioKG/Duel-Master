@@ -19,11 +19,6 @@ const router = createRouter({
       name: 'translation',
       component: () => import('../views/TranslationView.vue'),
     },
-    {
-      path: '/test',
-      name: 'test',
-      component: () => import('../views/TestView.vue'),
-    },
   ],
 })
 

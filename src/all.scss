@@ -1,13 +1,8 @@
 @import '/node_modules/bootstrap/scss/bootstrap-grid';
 
 @font-face {
-  font-family: 'Squealer';
-  src: url('../fonts/squealer-embossed.ttf');
-}
-
-@font-face {
   font-family: 'Matrix II Bold';
-  src: url('../fonts/matrix-ii-bold.otf');
+  src: url('./assets/fonts/matrix-ii-bold.otf');
 }
 
 @font-face {
@@ -24,9 +19,23 @@
 }
 
 :root {
-  --primary-color: rgb(245, 222, 179); // wheat
+  --primary-color: rgb(245, 222, 179); /* wheat */
   --primary-active-color: rgb(249, 189, 77);
   --secondary-color: rgb(30, 30, 30);
+}
+
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #f0f2f5;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
@@ -35,6 +44,7 @@
 
 html,
 body {
+  min-width: 320px;
   width: 100vw;
   height: 100vh;
   overflow: hidden;

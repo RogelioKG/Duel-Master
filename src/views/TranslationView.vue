@@ -87,8 +87,8 @@ import { onMounted, ref, toValue, useTemplateRef, watch } from 'vue'
 import { useMediaQuery, type MaybeElementRef } from '@vueuse/core'
 import { CARD_LEAVING_MS, FLIP_DURATION_MS } from '@/config'
 import type { CanvasCardType } from '@/types'
-import yugiohExample from '@/assets/example/yugioh'
-import yugiohBackExample from '@/assets/example/yugiohBack'
+import yugiohExample from '@/example/yugioh'
+import yugiohBackExample from '@/example/yugiohBack'
 import CanvasCard from '@/components/canvas-card/CanvasCard.vue'
 import ArrowRight from '@/components/svg/ArrowRight.vue'
 import Plus from '@/components/svg/Plus.vue'
@@ -209,8 +209,8 @@ onMounted(() => {
 </script>
 
 <style scoped lang="css">
-@import url("../assets/css/jagged-bg.css");
-@import url("../assets/scss/utilities.scss");
+@import url("../styles/css/jagged-bg.css");
+@import url("../styles/scss/utilities.scss");
 
 .translation {
   width: 100%;

@@ -23,7 +23,7 @@ useParallaxEffect('.parallax-p100', 1 / 100)
 </script>
 
 <style scoped lang="css">
-@import url('@/assets/css/yugioh-bg.css');
+@import url('../styles/css/yugioh-bg.css');
 
 /******************** < w320px Starts ********************/
 main {
