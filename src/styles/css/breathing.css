@@ -1,0 +1,14 @@
+@keyframes breathing-border {
+  0% {
+    border-bottom-color: var(--primary-active-color);
+    box-shadow: 0 2px 12px var(--primary-active-color-bright);
+  }
+  50% {
+    border-bottom-color: var(--primary-active-color-bright);
+    box-shadow: 0 2px 8px var(--primary-active-color-dim);
+  }
+  100% {
+    border-bottom-color: var(--primary-active-color);
+    box-shadow: 0 2px 12px var(--primary-active-color-bright);
+  }
+}

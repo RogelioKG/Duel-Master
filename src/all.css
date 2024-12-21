@@ -1,0 +1,97 @@
+@font-face {
+  font-family: 'Matrix II Bold';
+  src: url('./assets/fonts/matrix-ii-bold.otf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors */
+  --primary-color: rgb(245, 222, 179);
+  --primary-color-brighter: rgba(245, 222, 179, 0.6);
+  --primary-color-bright: rgba(245, 222, 179, 0.4);
+  --primary-color-dim: rgba(245, 222, 179, 0.2);
+  --primary-color-shadowy: rgba(245, 222, 179, 0.1);
+  --primary-active-color: rgb(249, 189, 77);
+  --primary-active-color-brighter: rgba(249, 189, 77, 0.6);
+  --primary-active-color-bright: rgba(249, 189, 77, 0.4);
+  --primary-active-color-dim: rgba(249, 189, 77, 0.2);
+  --primary-active-color-shadowy: rgba(249, 189, 77, 0.1);
+  --secondary-color: rgb(30, 30, 30);
+  --secondary-color-bright: rgba(30, 30, 30, 0.4);
+  --secondary-color-dim: rgba(30, 30, 30, 0.2);
+  --secondary-color-shadowy: rgba(30, 30, 30, 0.1);
+  --gray-color: rgb(45, 45, 45);
+  --gray-color-bright: rgba(45, 45, 45, 0.4);
+  --gray-color-dim: rgba(45, 45, 45, 0.2);
+  --gray-color-shadowy: rgba(45, 45, 45, 0.1);
+  --input-unfocused: rgba(255, 255, 255, 0.15);
+  --input-focused: rgba(255, 255, 255, 0.2);
+  --placeholder-color: var(--primary-color-brighter);
+  --text-primary: var(--primary-color);
+  --text-secondary: var(--gray-color);
+  --alert-color: rgba(255, 59, 48, 0.1);
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+
+  /* Border radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+:root {
+  font-family: 'Noto Sans TC', sans-serif;
+  line-height: 1.5;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: black;
+}
+
+/* Webkit (Chrome, Safari, Edge) scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(245, 222, 179, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 222, 179, 0.2);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 222, 179, 0.3);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+html,
+body {
+  min-width: 320px;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+}

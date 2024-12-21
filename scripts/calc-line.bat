@@ -1,0 +1,1 @@
+cloc . --exclude-dir=node_modules,dist,public,backend --exclude-ext=yaml,json,svg,md
