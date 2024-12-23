@@ -1,59 +1,52 @@
 # Duel-Master
 
-## Getting Started
+## Setting up this project
 
-### Frontend
-
-1. install pnpm
-    ```bat
-    npm install -g pnpm
+1. clone this repo
     ```
-
-2. clone
-    ```bat
     git clone git@github.com:RogelioKG/Duel-Master.git
     ```
 
-3. copy [this directory] to `src/assets/yugioh-card`
+2. copy the contents of [this yugioh-card assets directory][yugioh card assets] to `src/assets/yugioh-card`
 
-4. install dependencies
-    ```bat
+## Frontend
+
+### Using `pnpm`
+
+1. install pnpm
+    ```
+    npm install -g pnpm
+    ```
+
+2. install dependencies
+    ```
     cd Duel-Master
     pnpm install
     ```
 
-5. run
-    ```bat
+3. run
+    ```
     pnpm dev
     ```
 
-### Backend
+### Using `npm`
 
-#### Using `poetry`
+1. 這裡不歡迎 npm (欸🥺？這樣是可以的嗎？)
+
+## Backend (testing)
+
+### Using `poetry`
 1. run
-    ```bat
-    backend/scripts/run.bat
+
+    ```
+    scripts/run-backend.bat
     ```
 
-#### Using `pip`
-1. create virtual environment
-   ```bat
-   cd backend
-   python -m venv .
+### Using `pip`
+1. run
+
    ```
-2. activate virtual environment
-   ```bat
-   ./Scripts/activate
+   scripts/run-backend-pip.bat
    ```
 
-4. install dependencies
-   ```bat
-   pip install -r requirements.txt
-   ```
-
-5. run
-   ```bat
-   python app.py
-   ```
-
-[this directory]: https://github.com/kooriookami/yugioh-card/tree/master/src/assets/yugioh-card
+[yugioh card assets]: https://github.com/kooriookami/yugioh-card/tree/master/src/assets/yugioh-card
