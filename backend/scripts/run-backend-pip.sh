@@ -1,15 +1,7 @@
 #!/bin/bash
 
-# create virtual environment
-if [ ! -d ".venv" ]; then
-  python3 -m venv .venv
-fi
-
-# activate virtual environment
-source .venv/bin/activate
-
-# install dependencies
-pip install -r requirements.txt
+# venv
+source ./scripts/venv-pip.sh
 
 # run the app
-python3 app.py
+flask --app src run --debug --port 3000

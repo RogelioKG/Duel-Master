@@ -18,15 +18,21 @@ instance/
 # -----------------------
 # Assets folder for yugioh cards
 # -----------------------
-assets/card-material/*
-assets/card-image/*
-!assets/card-material/README.md
-!assets/card-image/.gitkeep
+src/assets/card-material/*
+src/assets/card-image/*
+!src/assets/card-material/README.md
+!src/assets/card-image/.gitkeep
 
 
 # -----------------------
 # Model
 # -----------------------
-model/*
-!model/README.md
-!model/LICENSE
+src/model/*
+!src/model/README.md
+!src/model/LICENSE
+
+
+# -----------------------
+# Testing
+# -----------------------
+.coverage

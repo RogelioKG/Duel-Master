@@ -1,2 +1,8 @@
+@echo off
+
+:: venv
 uv sync
-uv run app.py
+call .venv\Scripts\activate.bat
+
+:: run the app
+flask --app src run --debug --port 3000

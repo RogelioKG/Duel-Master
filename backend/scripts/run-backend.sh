@@ -1,4 +1,8 @@
 #!/bin/bash
 
+# venv
 uv sync
-uv run app.py
+source .venv/bin/activate
+
+# run the app
+flask --app src run --debug --port 3000

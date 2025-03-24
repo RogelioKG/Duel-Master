@@ -2,9 +2,7 @@
 name = "duel-master-backend"
 version = "1.0.0"
 description = ""
-authors = [
-    { name = "RogelioKG", email = "rogeliokg0813@gmail.com" }
-]
+authors = [{ name = "RogelioKG", email = "rogeliokg0813@gmail.com" }]
 license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.11"
@@ -20,13 +18,14 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "pytest>=8.3.5",
+    "pytest-cov>=6.0.0",
+    "pytest-mock>=3.14.0",
     "ruff>=0.9.10",
 ]
 
 [tool.uv.sources]
-torch = [
-    { index = "pytorch-cu124" },
-]
+torch = [{ index = "pytorch-cu124" }]
 
 [[tool.uv.index]]
 name = "pypi"
@@ -37,6 +36,7 @@ name = "pytorch-cu124"
 url = "https://download.pytorch.org/whl/cu124"
 
 [tool.ruff]
+indent-width = 4
 line-length = 100
 
 [tool.ruff.lint]
@@ -47,8 +47,20 @@ select = [
     "I",  # isort
     "C",  # flake8-comprehensions
     "B",  # flake8-bugbear
-    "UP",  # pyupgrade
+    "UP", # pyupgrade
 ]
 
 [tool.ruff.format]
 quote-style = "double"
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+testpaths = "tests"
+
+[tool.coverage.run]
+data_file = "tests/.coverage"
+omit = [
+    "src/constanst.py",
+    "src/shared_types.py",
+    "src/utils/log.py"
+]

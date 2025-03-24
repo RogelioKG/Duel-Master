@@ -12,7 +12,19 @@ from src.constants import PATH
 
 class AbstractTranslator(ABC):
     @abstractmethod
-    def translate(self, untranslated_text: str) -> str:
+    def translate(self, untranslated_text: str) -> str:  # pragma: no cover
+        """翻譯文字
+
+        Parameters
+        ----------
+        untranslated_text : str
+            翻譯前文字
+
+        Returns
+        -------
+        str
+            翻譯後文字
+        """
         pass
 
 
@@ -48,7 +60,7 @@ class YugiohTranslator(AbstractTranslator):
         num_return_sequences: int = 1
         prefix = "<-ja2zh->"
 
-        encodings_text = self._tokenizer.encode(
+        encodings_text: torch.Tensor = self._tokenizer.encode(
             prefix + untranslated_text,
             return_tensors="pt",
             max_length=max_length,
@@ -56,7 +68,7 @@ class YugiohTranslator(AbstractTranslator):
             truncation=True,
         ).to(self._device)
 
-        output = self._model.generate(
+        output: torch.Tensor = self._model.generate(
             encodings_text,
             do_sample=True,
             top_k=top_k,

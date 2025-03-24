@@ -1,4 +1,5 @@
 # standard library
+import os
 from enum import Enum
 
 
@@ -8,7 +9,7 @@ class API(Enum):
 
 
 class PATH(Enum):
-    YUGIOH_IMAGE_DIR = "./assets/card-image"
-    YUGIOH_MATERIAL_DIR = "./assets/card-material"
-    USER_UPLOAD_IMAGE_DIR = "./storage"
-    MODEL_DIR = "./model"
+    YUGIOH_IMAGE_DIR = os.path.abspath("./src/assets/card-image")
+    YUGIOH_MATERIAL_DIR = os.path.abspath("./src/assets/card-material")
+    USER_UPLOAD_IMAGE_DIR = os.path.abspath("./src/storage")
+    MODEL_DIR = os.path.abspath("./src/model")

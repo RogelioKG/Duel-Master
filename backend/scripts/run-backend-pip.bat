@@ -1,13 +1,7 @@
-:: create virtual environment
-if not exist .venv (
-  python -m venv .venv
-)
+@echo off
 
-:: activate virtual environment
-call .venv\Scripts\activate
-
-:: install dependencies
-pip install -r requirements.txt
+:: venv
+call srcipts\venv-pip.bat
 
 :: run the app
-python app.py
+flask --app src run --debug --port 3000
