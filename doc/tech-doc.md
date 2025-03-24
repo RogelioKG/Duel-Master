@@ -98,11 +98,17 @@ cd backend
 + run
   + Windows: `scripts/run-backend-pip.bat`
   + Linux: `source scripts/run-backend-pip.sh`
++ testing
+  + Windows: `scripts/run-test-pip.bat`
+  + Linux: `source scripts/run-test-pip.sh`
 
 #### Using `uv`
 + run
   + Windows: `scripts/run-backend.bat`
   + Linux: `source scripts/run-backend.sh`
++ testing
+  + Windows: `scripts/run-test.bat`
+  + Linux: `source scripts/run-test.sh`
 + freeze requirements
   + Windows: `scripts/freeze-requirements.bat`
   + Linux: `source scripts/freeze-requirements.sh`
