@@ -154,17 +154,13 @@ class TestOcrTextExtractor:
         with pytest.raises(RuntimeError, match="OCR processing failed."):
             ocr_text_extractor._poll_with_backoff("operation-id", max_attempts=1)
 
-    @pytest.mark.xfail(reason="寬鬆條件擋在嚴格條件前面，待修正")
     @pytest.mark.parametrize(
         "text_list, expected_output",
         [
-            (
-                ["CARD-NAME", "Some description", "ATK 2500", "DEF 2000"],
-                "CARD-NAME\nSome description\n",
-            ),
-            (["Some text", "12345678", "Another text"], "Some text\n"),
-            (["First line", "ATK 2000", "Second line"], "First line\n"),
-            (["This is", "a simple", "test case."], "This is\na simple\ntest case.\n"),
+            (["【】", "ABCD-ABCDE", "...", "...", "...", "12345678"], "........."),
+            (["ABCD-ABCDE", "【】", "...", "...", "...", "ATK", "12345678"], "........."),
+            (["...", "...", "ABCD-ABCDE", "ATK", "12345678"], "......"),
+            (["【】", "ABCD-ABCDE", "...", "...", "ATK", "12345678"], "......"),
         ],
     )
     def test__filter_text(self, text_list: list[str], expected_output: str) -> None:

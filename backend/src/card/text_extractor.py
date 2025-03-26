@@ -46,10 +46,16 @@ class OcrTextExtractor(AbstractTextExtractor):
 
         operation_id = self._send_read_request(src)
         read_result = self._poll_with_backoff(operation_id)
-        extracted_text = OcrTextExtractor._filter_text(read_result)
 
         self.logger.debug(
             "In OcrTextExtractor, extracting text completed.\nResult:\n%s",
+            read_result,
+        )
+
+        extracted_text = OcrTextExtractor._filter_text(read_result)
+
+        self.logger.debug(
+            "In OcrTextExtractor, filtering text completed.\nResult:\n%s",
             extracted_text,
         )
 
@@ -143,14 +149,34 @@ class OcrTextExtractor(AbstractTextExtractor):
         str
             提取出的文字
         """
-        trans_text = ""
-        for line in text_list:
-            if re.match(r"^[A-Z0-9]+[\- ][A-Z0-9]+", line):
-                continue
-            if re.match(r"[0-9]{8}", line):
-                break
-            if "ATK" in line or "DEF" in line:
-                break  # TODO: 前人留下的 BUG (這永遠不會執行到，因為前面寬鬆條件擋住了)
-            trans_text += line + "\n"
 
-        return trans_text
+        # 重寫一遍的算法
+        # 根據這樣的邏輯抽取出 ...
+        # NOTE: 並非絕對穩定輸出
+
+        # 【】 \w{4}\-\w{5} ... \d{8}
+        # \w{4}\-\w{5} 【】 ... ATK \d{8}
+        # 【】 ... \w{4}\-\w{5} ATK \d{8}
+        # 【】 \w{4}\-\w{5} ... ATK \d{8}
+
+        start = 0
+        for i in range(len(text_list)):
+            if "【" in text_list[i] and "】" in text_list[i]:
+                start = i + 1
+
+        end = len(text_list) - 1
+        for j in reversed(range(len(text_list))):
+            if re.match(r"\d{8}.*", text_list[j]):
+                end = j - 1
+
+        description_text_list: list[str] = text_list[start : end + 1]
+
+        for description_text in description_text_list.copy():
+            if re.match(r"\w{4}\-\w{5}", description_text):
+                description_text_list.remove(description_text)
+            elif "ATK" in description_text or "DEF" in description_text:
+                description_text_list.remove(description_text)
+
+        description = "".join(description_text_list)
+
+        return description
