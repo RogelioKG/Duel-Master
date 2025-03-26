@@ -127,8 +127,8 @@ def test_question_api(client: FlaskClient) -> None:
     ---
     Question API
 
-    Desciption
-    ----------
+    Description
+    -----------
     + Given：提供問題內容
     + When：呼叫 `/api/question` endpoint
     + Then：應該回傳 200 並返回模擬的答案
@@ -146,8 +146,8 @@ def test_question_api_no_text(client: FlaskClient) -> None:
     ---
     Question API
 
-    Desciption
-    ----------
+    Description
+    -----------
     + Given：沒有提供問題內容
     + When：呼叫 `/api/question` endpoint
     + Then：應該回傳 400 並顯示錯誤訊息
@@ -164,8 +164,8 @@ def test_serve_card_material(mocker: MockerFixture, client: FlaskClient) -> None
     ---
     Card Material API
 
-    Desciption
-    ----------
+    Description
+    -----------
     + Given：提供有效的檔案路徑
     + When：呼叫 `/api/assets/card-material/<path>` endpoint
     + Then：應該回傳 200 並提供檔案
@@ -192,8 +192,8 @@ def test_serve_card_image(
     ---
     Card Image API
 
-    Desciption
-    ----------
+    Description
+    -----------
     + Given：提供有效的圖片 ID
     + When：呼叫 `/api/assets/card-image/<image_id>` endpoint
     + Then：應該回傳 200 並提供圖片
@@ -220,8 +220,8 @@ def test_serve_card_image_download_yet(
     ---
     Card Image API
 
-    Desciption
-    ----------
+    Description
+    -----------
     + Given：提供有效的圖片 ID，但圖片尚未存在於本地，需要下載
     + When：呼叫 `/api/assets/card-image/<image_id>` endpoint
     + Then：應該下載圖片，回傳 200 並提供圖片

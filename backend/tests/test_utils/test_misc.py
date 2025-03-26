@@ -14,7 +14,7 @@ def test_try_getenv_existing_variable(mocker: MockFixture) -> None:
 
     Description
     -----------
-    + Given：
+    + Given：...
     + When：當環境變數存在時
     + Then：應回傳正確值
     """
@@ -37,7 +37,7 @@ def test_try_getenv_missing_variable(mocker: MockFixture) -> None:
 
     Description
     -----------
-    + Given：
+    + Given：...
     + When：當環境變數不存在時
     + Then：應引發 `ValueError`
     """

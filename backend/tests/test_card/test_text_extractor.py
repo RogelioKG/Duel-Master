@@ -66,7 +66,7 @@ class TestOcrTextExtractor:
         `OcrTextExtractor._poll_with_backoff`
 
         Description
-        ---
+        -----------
         + Given：使用 Azure OCR API
         + When：當 polling 的 max_attempts < 1
         + Then：應拋出 `ValueError`
@@ -94,7 +94,7 @@ class TestOcrTextExtractor:
         `OcrTextExtractor._poll_with_backoff`
 
         Description
-        ---
+        -----------
         + Given：使用 Azure OCR API
         + When：當 polling 的 initial_wait <= 0
         + Then：應拋出 `ValueError`
@@ -122,7 +122,7 @@ class TestOcrTextExtractor:
         `OcrTextExtractor._poll_with_backoff`
 
         Description
-        ---
+        -----------
         + Given：使用 Azure OCR API
         + When：當不斷 polling 後回傳成功狀態
         + Then：應取得解析後的結果
@@ -152,7 +152,7 @@ class TestOcrTextExtractor:
         `OcrTextExtractor._poll_with_backoff`
 
         Description
-        ---
+        -----------
         + Given：使用 Azure OCR API
         + When：當 Azure OCR 長時間未完成
         + Then：應拋出 `TimeoutError`
@@ -175,7 +175,7 @@ class TestOcrTextExtractor:
         `OcrTextExtractor._poll_with_backoff`
 
         Description
-        ---
+        -----------
         + Given：使用 Azure OCR API
         + When：當 Azure OCR 未啟動
         + Then：應拋出 `TimeoutError`
@@ -198,7 +198,7 @@ class TestOcrTextExtractor:
         `OcrTextExtractor._poll_with_backoff`
 
         Description
-        ---
+        -----------
         + Given：使用 Azure OCR API
         + When：當 Azure OCR 未啟動
         + Then：應拋出 `TimeoutError`
@@ -228,7 +228,7 @@ class TestOcrTextExtractor:
         `OcrTextExtractor._filter_text`
 
         Description
-        ---
+        -----------
         + Given：提取出的文字 list
         + When：當呼叫 `_filter_text`
         + Then：文字應該被正確過濾，且回傳字串
@@ -243,7 +243,7 @@ class TestOcrTextExtractor:
         `OcrTextExtractor.extract`
 
         Description
-        ---
+        -----------
         + Given：ocr_text_extractor 物件
         + When：當呼叫 `extract`
         + Then：取得過濾後的 OCR 文字
