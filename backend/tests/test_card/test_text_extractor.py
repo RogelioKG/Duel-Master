@@ -57,6 +57,62 @@ class TestOcrTextExtractor:
         # Then
         assert operation_id == "operation-id"
 
+    def test__poll_with_backoff_max_attempts_valueerror(
+        self, mocker: MockerFixture, ocr_text_extractor: OcrTextExtractor
+    ) -> None:
+        """
+        MUT
+        ---
+        `OcrTextExtractor._poll_with_backoff`
+
+        Description
+        ---
+        + Given：使用 Azure OCR API
+        + When：當 polling 的 max_attempts < 1
+        + Then：應拋出 `ValueError`
+        """
+        # Given
+        mock_result = mocker.Mock()
+        mock_result.status = OperationStatusCodes.succeeded
+        mock_result.analyze_result.read_results = [
+            mocker.Mock(lines=[mocker.Mock(text="CARD-NAME"), mocker.Mock(text="Some description")])
+        ]
+        ocr_text_extractor._computervision_client.get_read_result = mocker.Mock(
+            return_value=mock_result
+        )
+
+        # Then
+        with pytest.raises(ValueError, match="max_attempts must >= 1!"):
+            ocr_text_extractor._poll_with_backoff("operation-id", max_attempts=0)
+
+    def test__poll_with_backoff_initial_wait_valueerror(
+        self, mocker: MockerFixture, ocr_text_extractor: OcrTextExtractor
+    ) -> None:
+        """
+        MUT
+        ---
+        `OcrTextExtractor._poll_with_backoff`
+
+        Description
+        ---
+        + Given：使用 Azure OCR API
+        + When：當 polling 的 initial_wait <= 0
+        + Then：應拋出 `ValueError`
+        """
+        # Given
+        mock_result = mocker.Mock()
+        mock_result.status = OperationStatusCodes.succeeded
+        mock_result.analyze_result.read_results = [
+            mocker.Mock(lines=[mocker.Mock(text="CARD-NAME"), mocker.Mock(text="Some description")])
+        ]
+        ocr_text_extractor._computervision_client.get_read_result = mocker.Mock(
+            return_value=mock_result
+        )
+
+        # Then
+        with pytest.raises(ValueError, match="initial_wait must > 0!"):
+            ocr_text_extractor._poll_with_backoff("operation-id", initial_wait=0)
+
     def test__poll_with_backoff_success(
         self, mocker: MockerFixture, ocr_text_extractor: OcrTextExtractor
     ) -> None:
@@ -77,7 +133,9 @@ class TestOcrTextExtractor:
         mock_result.analyze_result.read_results = [
             mocker.Mock(lines=[mocker.Mock(text="CARD-NAME"), mocker.Mock(text="Some description")])
         ]
-        ocr_text_extractor._computervision_client.get_read_result.return_value = mock_result
+        ocr_text_extractor._computervision_client.get_read_result = mocker.Mock(
+            return_value=mock_result
+        )
 
         # When
         result = ocr_text_extractor._poll_with_backoff("operation-id")

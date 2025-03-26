@@ -107,7 +107,14 @@ class OcrTextExtractor(AbstractTextExtractor):
         TimeoutError
             OCR 程序不知為何未開始
         """
+
+        if max_attempts < 1:
+            raise ValueError("max_attempts must >= 1!")
+        if initial_wait <= 0:
+            raise ValueError("initial_wait must > 0!")
+
         wait_time = initial_wait
+        read_result = None
 
         for _ in range(max_attempts):
             read_result = self._computervision_client.get_read_result(operation_id)
@@ -120,8 +127,7 @@ class OcrTextExtractor(AbstractTextExtractor):
                 # 每次 request 最多間隔 10 秒
                 wait_time = min(wait_time * 2, 10)
                 # 加入 jitter (避免同算法的 client 造成流量高峰)
-                wait_time -= random.uniform(0, 1)
-                # TODO: 如果 initial_wait < 1 可能會出問題，要檢查
+                wait_time -= random.uniform(0, wait_time * 0.1)
 
         if read_result.status == OperationStatusCodes.succeeded:
             extracted_text_list: list[str] = [
