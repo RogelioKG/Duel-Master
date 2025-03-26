@@ -22,7 +22,7 @@ export function yCardtoFrontCardData(card: YCard): Partial<FrontCardData> {
   // return object
   const frontCardData = {
     password: card.id,
-    name: 'Black Luster Soldier - Envoy of the Evening Twilight',
+    name: card.name,
     type: keywords.find(keyword => cardType.includes(keyword)),
     cardType: card.frameType,
     atk: card.atk,
