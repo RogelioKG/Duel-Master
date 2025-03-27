@@ -1,6 +1,6 @@
 # Duel-Master
 ![Version 1.0.0](https://img.shields.io/badge/version-1.0.0-blue)
-![Last Updated](https://img.shields.io/badge/last%20updated-2025/3/13-darkgreen)
+![Last Updated](https://img.shields.io/badge/last%20updated-2025/3/27-darkgreen)
 [![Licence](https://img.shields.io/github/license/RogelioKG/Duel-Master)](./LICENSE)
 
 
